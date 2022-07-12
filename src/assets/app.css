@@ -1,0 +1,19 @@
+html,body {
+    width: 100%;
+}
+
+.content{
+    background-image: url(../assets/bg3.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.content > * {
+    padding: 1em;
+}
+
+.time {
+    text-align: center;
+    clear: right;
+    width: auto;
+    font-size: 1.5em;
+}
