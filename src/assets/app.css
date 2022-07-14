@@ -1,12 +1,14 @@
 html,body {
+    background-image: url(../assets/bg3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     width: 100%;
 }
 
-.content{
-    background-image: url(../assets/bg3.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-}
 .content > * {
     padding: 1em;
 }
