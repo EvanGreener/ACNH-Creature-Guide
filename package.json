@@ -1,7 +1,7 @@
 {
   "name": "acnh-guide",
   "version": "0.1.0",
-  "homepage": "https://evangreener.github.io/ACNH-Creature-Guide",
+  "homepage": "https://evangreener.github.io/ACNH-Creature-Guide/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
