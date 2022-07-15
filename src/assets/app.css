@@ -13,6 +13,11 @@ html,body {
     padding: 1em;
 }
 
+.header {
+    background-image: url('../assets/clip-art-clouds.png');
+    background-size: contain;
+}
+
 .time {
     text-align: center;
     clear: right;

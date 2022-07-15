@@ -168,20 +168,40 @@ class Index extends Component {
                         </div>
                         <Grid container spacing={3}>
                             <Grid item xs={9}>
-                                <Typography
-                                    variant="h5"
-                                    sx={{ flexgrow: 1, textAlign: 'center' }}
+                                <Paper
+                                    elevation={16}
+                                    variant="outlined"
+                                    sx={{
+                                        opacity: '90%',
+                                    }}
                                 >
-                                    Obtainable creatures {'(at present)'}!!
-                                </Typography>
+                                    <Typography
+                                        variant="h5"
+                                        sx={{
+                                            flexgrow: 1,
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        Obtainable creatures {'(at present)'}!!
+                                    </Typography>
+                                </Paper>
                             </Grid>
                             <Grid item xs={3}>
-                                <Typography
-                                    variant="h5"
-                                    sx={{ flexgrow: 1, textAlign: 'center' }}
+                                <Paper
+                                    elevation={16}
+                                    variant="outlined"
+                                    sx={{ opacity: '90%' }}
                                 >
-                                    Settings
-                                </Typography>
+                                    <Typography
+                                        variant="h5"
+                                        sx={{
+                                            flexgrow: 1,
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        Settings
+                                    </Typography>
+                                </Paper>
                             </Grid>
                             <Grid item xs={9}>
                                 <CreatureList
