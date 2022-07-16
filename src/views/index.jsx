@@ -85,7 +85,7 @@ class Index extends Component {
             <Paper
                 elevation={12}
                 sx={{
-                    height: 400,
+                    height: '100%',
                     width: '100%',
                     backgroundColor: '#4caf50',
                     opacity: '90%',
@@ -173,6 +173,7 @@ class Index extends Component {
                                     variant="outlined"
                                     sx={{
                                         opacity: '90%',
+                                        backgroundColor: '#66ffa6',
                                     }}
                                 >
                                     <Typography
@@ -190,7 +191,10 @@ class Index extends Component {
                                 <Paper
                                     elevation={16}
                                     variant="outlined"
-                                    sx={{ opacity: '90%' }}
+                                    sx={{
+                                        opacity: '90%',
+                                        backgroundColor: '#66ffa6',
+                                    }}
                                 >
                                     <Typography
                                         variant="h5"

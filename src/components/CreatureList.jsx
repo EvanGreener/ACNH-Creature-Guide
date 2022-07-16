@@ -139,7 +139,7 @@ class CreatureList extends Component {
                 <Paper
                     elevation={12}
                     sx={{
-                        height: 400,
+                        height: '100%',
                         width: '100%',
                         backgroundColor: '#4caf50',
                         opacity: '90%',
