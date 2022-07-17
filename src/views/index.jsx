@@ -2,20 +2,15 @@ import React, { Component } from 'react';
 import {
     AppBar,
     createTheme,
-    FormControl,
-    FormControlLabel,
     Grid,
-    InputLabel,
-    MenuItem,
-    Paper,
-    Select,
-    Switch,
     ThemeProvider,
     Toolbar,
     Typography,
 } from '@mui/material';
 import { green } from '@mui/material/colors';
 import CreatureList from '../components/CreatureList';
+import Header from '../components/Header';
+import Settings from '../components/Settings';
 
 export const theme = createTheme({
     palette: {
@@ -46,6 +41,20 @@ export const SortBy = {
     LOCATION: 'location',
     NONE: 'none',
 };
+
+function timeToString(time) {
+    let hours = time.getHours();
+    let mins = time.getMinutes();
+    let secs = time.getSeconds();
+    hours = hours < 10 ? '0' + hours : hours;
+    mins = mins < 10 ? '0' + mins : mins;
+    secs = secs < 10 ? '0' + secs : secs;
+    return (
+        <div className="time">
+            <code>{hours + ':' + mins + ':' + secs}</code>
+        </div>
+    );
+}
 
 class Index extends Component {
     state = {
@@ -80,73 +89,8 @@ class Index extends Component {
         this.setState({ sortBy: event.target.value });
     };
 
-    settings(region, allDay, sortBy, type) {
-        return (
-            <Paper
-                elevation={12}
-                sx={{
-                    height: '100%',
-                    width: '100%',
-                    backgroundColor: '#4caf50',
-                    opacity: '90%',
-                }}
-            >
-                <FormControl sx={{ m: 1 }}>
-                    <InputLabel>Region</InputLabel>
-                    <Select
-                        label="Region"
-                        onChange={this.handleChangeRegion}
-                        value={region}
-                    >
-                        <MenuItem value={Region.NORTH}>North</MenuItem>
-                        <MenuItem value={Region.SOUTH}>South</MenuItem>
-                    </Select>
-                </FormControl>
-                <FormControl sx={{ m: 1 }}>
-                    <InputLabel>Type</InputLabel>
-                    <Select
-                        label="Type"
-                        onChange={this.handleChangeType}
-                        value={type}
-                    >
-                        <MenuItem value={Type.ALL}>All</MenuItem>
-                        <MenuItem value={Type.SEA}>Sea</MenuItem>
-                        <MenuItem value={Type.FISH}>Fish</MenuItem>
-                        <MenuItem value={Type.BUGS}>Bugs</MenuItem>
-                    </Select>
-                </FormControl>
-                <FormControl sx={{ m: 1 }}>
-                    <InputLabel>Sort By</InputLabel>
-                    <Select
-                        label="Sort By:"
-                        value={sortBy}
-                        onChange={this.handleChangeSoryBy}
-                    >
-                        <MenuItem value={SortBy.PRICE}>Price</MenuItem>
-                        <MenuItem value={SortBy.LOCATION}>Location</MenuItem>
-                        <MenuItem value={SortBy.NAME}>Name</MenuItem>
-                        <MenuItem value={SortBy.NONE}>None</MenuItem>
-                    </Select>
-                </FormControl>
-                <br />
-                <FormControlLabel
-                    control={<Switch defaultChecked />}
-                    label="All day"
-                    onChange={this.handleChangeAllDay}
-                    sx={{ m: 1 }}
-                />
-            </Paper>
-        );
-    }
-
     render() {
         const { time, type, region, allDay, sortBy } = this.state;
-        let hours = time.getHours();
-        let mins = time.getMinutes();
-        let secs = time.getSeconds();
-        hours = hours < 10 ? '0' + hours : hours;
-        mins = mins < 10 ? '0' + mins : mins;
-        secs = secs < 10 ? '0' + secs : secs;
 
         return (
             <>
@@ -163,49 +107,13 @@ class Index extends Component {
                         </Toolbar>
                     </AppBar>
                     <section className="content">
-                        <div className="time">
-                            <code>{hours + ':' + mins + ':' + secs}</code>
-                        </div>
+                        {timeToString(time)}
                         <Grid container spacing={3}>
                             <Grid item xs={9}>
-                                <Paper
-                                    elevation={16}
-                                    variant="outlined"
-                                    sx={{
-                                        opacity: '90%',
-                                        backgroundColor: '#66ffa6',
-                                    }}
-                                >
-                                    <Typography
-                                        variant="h5"
-                                        sx={{
-                                            flexgrow: 1,
-                                            textAlign: 'center',
-                                        }}
-                                    >
-                                        Obtainable creatures {'(at present)'}!!
-                                    </Typography>
-                                </Paper>
+                                <Header text="Obtainable creatures (at present)!!" />
                             </Grid>
                             <Grid item xs={3}>
-                                <Paper
-                                    elevation={16}
-                                    variant="outlined"
-                                    sx={{
-                                        opacity: '90%',
-                                        backgroundColor: '#66ffa6',
-                                    }}
-                                >
-                                    <Typography
-                                        variant="h5"
-                                        sx={{
-                                            flexgrow: 1,
-                                            textAlign: 'center',
-                                        }}
-                                    >
-                                        Settings
-                                    </Typography>
-                                </Paper>
+                                <Header text="Settings" />
                             </Grid>
                             <Grid item xs={9}>
                                 <CreatureList
@@ -216,7 +124,15 @@ class Index extends Component {
                                 />
                             </Grid>
                             <Grid item xs={3}>
-                                {this.settings(region, allDay, sortBy, type)}
+                                <Settings
+                                    region={region}
+                                    type={type}
+                                    sortBy={sortBy}
+                                    handleChangeRegion={this.handleChangeRegion}
+                                    handleChangeType={this.handleChangeType}
+                                    handleChangeSoryBy={this.handleChangeSoryBy}
+                                    handleChangeAllDay={this.handleChangeAllDay}
+                                />
                             </Grid>
                         </Grid>
                     </section>

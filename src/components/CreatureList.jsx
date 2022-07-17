@@ -9,10 +9,6 @@ class CreatureList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // creatureType: props.type,
-            // region: props.region,
-            // sortBy: props.sortBy,
-            // allDay: props.allDay,
             fetchingData: true,
             fish: [],
             sea: [],
@@ -22,6 +18,7 @@ class CreatureList extends Component {
     }
 
     componentDidMount() {
+        // Fetch all the creatures and store them in state
         fetch('https://acnhapi.com/v1a/fish')
             .then((response) => {
                 if (response.ok) {
@@ -55,12 +52,15 @@ class CreatureList extends Component {
                 this.setState({ bugs: data, fetchingData: false });
             });
 
+        // Update what's shown every second
         setInterval(this.updateShown, 1000);
     }
 
     updateShown = () => {
         const { fish, sea, bugs } = this.state;
         const { allDay, type, region, sortBy } = this.props;
+
+        // Filter by creature type
         let temp = [];
         switch (type) {
             case Type.FISH:
@@ -77,6 +77,7 @@ class CreatureList extends Component {
                 break;
         }
 
+        // Only keep the creatures presently availible
         const newShown = temp.filter((creature) => {
             // console.log(creature);
             const { availability } = creature;
@@ -104,6 +105,7 @@ class CreatureList extends Component {
             }
         });
 
+        // Finally sort the new list based on what the user specifies in select menu
         switch (sortBy) {
             case SortBy.PRICE:
                 newShown.sort((a, b) => a.price - b.price);
@@ -125,7 +127,6 @@ class CreatureList extends Component {
                 break;
         }
 
-        console.log(newShown);
         this.setState({
             shown: newShown,
         });
