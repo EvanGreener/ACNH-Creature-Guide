@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ACNH-Creature-Guide/static/css/main.64395641.css",
-    "main.js": "/ACNH-Creature-Guide/static/js/main.119820d4.js",
+    "main.js": "/ACNH-Creature-Guide/static/js/main.0633b9f0.js",
     "static/media/bg3.jpg": "/ACNH-Creature-Guide/static/media/bg3.53271285deefd06d9d88.jpg",
     "index.html": "/ACNH-Creature-Guide/index.html",
     "main.64395641.css.map": "/ACNH-Creature-Guide/static/css/main.64395641.css.map",
-    "main.119820d4.js.map": "/ACNH-Creature-Guide/static/js/main.119820d4.js.map"
+    "main.0633b9f0.js.map": "/ACNH-Creature-Guide/static/js/main.0633b9f0.js.map"
   },
   "entrypoints": [
     "static/css/main.64395641.css",
-    "static/js/main.119820d4.js"
+    "static/js/main.0633b9f0.js"
   ]
 }
