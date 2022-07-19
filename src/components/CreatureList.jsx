@@ -117,11 +117,19 @@ class CreatureList extends Component {
                 );
                 break;
             case SortBy.LOCATION:
-                newShown.sort((a, b) =>
-                    a.availability.location.localeCompare(
-                        b.availability.location
-                    )
-                );
+                newShown.sort((a, b) => {
+                    const locationA = a.availability.location;
+                    const locationB = b.availability.location;
+                    if (locationA && locationB) {
+                        return locationA.localeCompare(locationB);
+                    } else if (locationA) {
+                        return locationA.localeCompare('Deep sea diving');
+                    } else if (locationB) {
+                        return 'Deep sea diving'.localeCompare(locationB);
+                    } else {
+                        return 0;
+                    }
+                });
                 break;
             default: // default is by ID
                 break;
