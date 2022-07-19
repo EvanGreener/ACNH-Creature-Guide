@@ -46,5 +46,6 @@ code {
 @media only screen and (max-width: 600px) {
   .paper-content {
     font-size: 2.5vw;
+    height: 100%;
   }
 }

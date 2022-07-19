@@ -97,15 +97,6 @@ class Index extends Component {
                     <section className="content">
                         {timeToString(time)}
                         <Grid container spacing={{ xs: 2, md: 3 }}>
-                            <Grid item xs={xsEverything} sm={smCL}>
-                                <Header text="Obtainable creatures (at present)!!" />
-                                <CreatureList
-                                    type={type}
-                                    region={region}
-                                    allDay={allDay}
-                                    sortBy={sortBy}
-                                />
-                            </Grid>
                             <Grid item xs={xsEverything} sm={smSettings}>
                                 <Header text="Settings" />
                                 <Settings
@@ -116,6 +107,15 @@ class Index extends Component {
                                     handleChangeType={this.handleChangeType}
                                     handleChangeSoryBy={this.handleChangeSoryBy}
                                     handleChangeAllDay={this.handleChangeAllDay}
+                                />
+                            </Grid>
+                            <Grid item xs={xsEverything} sm={smCL}>
+                                <Header text="Obtainable creatures!!" />
+                                <CreatureList
+                                    type={type}
+                                    region={region}
+                                    allDay={allDay}
+                                    sortBy={sortBy}
                                 />
                             </Grid>
                         </Grid>

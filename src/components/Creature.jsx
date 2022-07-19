@@ -17,8 +17,8 @@ const Creature = (props) => {
                 <img
                     src={creature['icon_uri']}
                     alt="icon"
-                    height={60}
-                    width={60}
+                    height={50}
+                    width={50}
                 />
                 <span style={{ width: '16%' }}>
                     {creature.name['name-USen']}
@@ -26,7 +26,7 @@ const Creature = (props) => {
                 {'|'}
                 <span style={{ width: '16%' }}>${creature.price}</span>
                 {'|'}
-                <span style={{ width: '17%' }}>
+                <span style={{ width: '16%' }}>
                     {!creature.availability.location
                         ? 'Deep sea diving'
                         : creature.availability.location}
