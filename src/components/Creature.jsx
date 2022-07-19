@@ -24,7 +24,7 @@ const Creature = (props) => {
                     {creature.name['name-USen']}
                 </span>
                 {'|'}
-                <span style={{ width: '16%' }}>${creature.price}</span>
+                <span style={{ width: '16%' }}>{creature.price} bells</span>
                 {'|'}
                 <span style={{ width: '16%' }}>
                     {!creature.availability.location
