@@ -1,7 +1,7 @@
 import { Divider } from '@mui/material';
 
 const Creature = (props) => {
-    const { style, index, data } = this.props;
+    const { style, index, data } = props;
     const creature = data[index];
 
     return (

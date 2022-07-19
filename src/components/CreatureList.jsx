@@ -18,7 +18,7 @@ class CreatureList extends Component {
     }
 
     componentDidMount() {
-        // Fetch all the creatures and store them in state
+        // Fetch all the creatures and store them in the state object
         fetch('https://acnhapi.com/v1a/fish')
             .then((response) => {
                 if (response.ok) {
@@ -52,7 +52,7 @@ class CreatureList extends Component {
                 this.setState({ bugs: data, fetchingData: false });
             });
 
-        // Update what's shown every second
+        // Then update what's shown every second
         setInterval(this.updateShown, 1000);
     }
 
@@ -77,7 +77,7 @@ class CreatureList extends Component {
                 break;
         }
 
-        // Only keep the creatures presently availible
+        // Only keep the creatures presently availible based on region and time
         const newShown = temp.filter((creature) => {
             // console.log(creature);
             const { availability } = creature;
@@ -139,12 +139,8 @@ class CreatureList extends Component {
             <>
                 <Paper
                     elevation={12}
-                    sx={{
-                        height: '100%',
-                        width: '100%',
-                        backgroundColor: '#4caf50',
-                        opacity: '90%',
-                    }}
+                    className="paper-content"
+                    sx={{ backgroundColor: '#4caf50' }}
                 >
                     <FixedSizeList
                         height={400}

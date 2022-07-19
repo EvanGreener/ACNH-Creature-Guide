@@ -23,12 +23,8 @@ const Settings = (props) => {
     return (
         <Paper
             elevation={12}
-            sx={{
-                height: '100%',
-                width: '100%',
-                backgroundColor: '#4caf50',
-                opacity: '90%',
-            }}
+            className="paper-content"
+            sx={{ backgroundColor: '#4caf50' }}
         >
             <FormControl sx={{ m: 1 }}>
                 <InputLabel>Region</InputLabel>

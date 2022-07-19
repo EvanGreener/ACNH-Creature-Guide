@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import {
-    AppBar,
-    createTheme,
-    Grid,
-    ThemeProvider,
-    Toolbar,
-    Typography,
-} from '@mui/material';
+import { createTheme, Grid, ThemeProvider } from '@mui/material';
 import { green } from '@mui/material/colors';
 import CreatureList from '../components/CreatureList';
 import Header from '../components/Header';
 import Settings from '../components/Settings';
+import Navbar from '../components/Navbar';
+import leafDark from '../assets/leaf_dark.png';
 
-export const theme = createTheme({
+const theme = createTheme({
     palette: {
         primary: {
             main: green['A200'],
@@ -23,19 +18,19 @@ export const theme = createTheme({
     },
 });
 
-export const Region = {
+const Region = {
     NORTH: 'North',
     SOUTH: 'South',
 };
 
-export const Type = {
+const Type = {
     FISH: 'Fish',
     SEA: 'Sea',
     BUGS: 'Bugs',
     ALL: 'All',
 };
 
-export const SortBy = {
+const SortBy = {
     PRICE: 'price',
     NAME: 'name',
     LOCATION: 'location',
@@ -91,31 +86,19 @@ class Index extends Component {
 
     render() {
         const { time, type, region, allDay, sortBy } = this.state;
+        const xsEverything = 12;
+        const smCL = 9;
+        const smSettings = 3;
 
         return (
             <>
                 <ThemeProvider theme={theme}>
-                    <AppBar position="static">
-                        <Toolbar>
-                            <Typography
-                                variant="h5"
-                                component="div"
-                                sx={{ flexgrow: 1 }}
-                            >
-                                ACNH Creature guide
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
+                    <Navbar logoSrc={leafDark} text="ACNH Creature Guide" />
                     <section className="content">
                         {timeToString(time)}
-                        <Grid container spacing={3}>
-                            <Grid item xs={9}>
+                        <Grid container spacing={{ xs: 2, md: 3 }}>
+                            <Grid item xs={xsEverything} sm={smCL}>
                                 <Header text="Obtainable creatures (at present)!!" />
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Header text="Settings" />
-                            </Grid>
-                            <Grid item xs={9}>
                                 <CreatureList
                                     type={type}
                                     region={region}
@@ -123,7 +106,8 @@ class Index extends Component {
                                     sortBy={sortBy}
                                 />
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={xsEverything} sm={smSettings}>
+                                <Header text="Settings" />
                                 <Settings
                                     region={region}
                                     type={type}
@@ -143,3 +127,4 @@ class Index extends Component {
 }
 
 export default Index;
+export { theme, Region, Type, SortBy };

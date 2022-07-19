@@ -6,10 +6,10 @@ const Header = (props) => {
     return (
         <Paper
             elevation={16}
-            variant="outlined"
             sx={{
                 opacity: '90%',
                 backgroundColor: '#66ffa6',
+                margin: '1em 0',
             }}
         >
             <Typography
