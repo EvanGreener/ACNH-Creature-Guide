@@ -47,12 +47,15 @@ function timeToString(time: Date) {
     let hours: string | number = time.getHours()
     let mins: string | number = time.getMinutes()
     let secs: string | number = time.getSeconds()
-    hours = hours < 10 ? '0' + hours : hours
+    const amPm = hours < 12 ? 'am' : 'pm'
+    hours %= 12
+
+    hours = hours === 0 ? 12 : hours
     mins = mins < 10 ? '0' + mins : mins
     secs = secs < 10 ? '0' + secs : secs
     return (
         <div className="time">
-            <code>{hours + ':' + mins + ':' + secs}</code>
+            <code>{hours + ':' + mins + ':' + secs + amPm}</code>
         </div>
     )
 }

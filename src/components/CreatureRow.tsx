@@ -1,4 +1,3 @@
-import { Divider } from '@mui/material'
 import { CSSProperties } from 'react'
 
 interface Creature {
@@ -34,42 +33,29 @@ const CreatureRow = ({ style, index, data }: Props) => {
 
     return (
         <div style={style}>
-            <div
-                style={{
-                    display: 'flex',
-                    flexFlow: 'row wrap',
-                    justifyContent: 'space-evenly',
-                    alignItems: 'center',
-                }}
-            >
+            <div className="row">
                 <img
                     src={creature['icon_uri']}
                     alt="icon"
                     height={50}
                     width={50}
+                    className="cell"
                 />
-                <span style={{ width: '16%' }}>
-                    {creature.name['name-USen']}
-                </span>
-                {'|'}
-                <span style={{ width: '16%' }}>{creature.price} bells</span>
-                {'|'}
-                <span style={{ width: '16%' }}>
+                <span className="cell">{creature.name['name-USen']}</span>
+                <span className="cell">{creature.price} bells</span>
+                <span className="cell">
                     {!creature.availability.location
                         ? 'Deep sea diving'
                         : creature.availability.location}
                 </span>
-                {'|'}
-                <span style={{ width: '16%' }}>
+                <span className="cell">
                     {!creature.shadow ? 'N/A' : creature.shadow}
                 </span>
-                {'|'}
-                <span style={{ width: '16%' }}>
+                <span className="cell">
                     {creature.availability.time === ''
                         ? 'All day'
                         : creature.availability.time}
                 </span>
-                <Divider />
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import { Paper } from '@mui/material'
 import { FixedSizeList } from 'react-window'
-import { Region, SortBy, Type } from '../views/Main'
+import { Region, SortBy, Type } from '../pages/Main'
 import { Backdrop, CircularProgress } from '@mui/material'
 import CreatureRow, { Creature } from './CreatureRow'
 import { useState } from 'react'
@@ -152,10 +152,9 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
             <Paper
                 elevation={12}
                 className="paper-content"
-                sx={{ backgroundColor: '#4caf50' }}
             >
                 <FixedSizeList
-                    height={400}
+                    height={450}
                     width="100%"
                     itemSize={60}
                     itemCount={shown.length}

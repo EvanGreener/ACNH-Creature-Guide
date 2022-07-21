@@ -7,18 +7,26 @@ interface Props {
 
 const Navbar = ({ logoSrc, text }: Props) => {
     return (
-        <AppBar position="static">
-            <Toolbar>
-                <img src={logoSrc} alt="App bar logo" height={50} width={50} />
-                <Typography
-                    variant="h5"
-                    component="div"
-                    sx={{ flexgrow: 1, m: 1 }}
-                >
-                    {text}
-                </Typography>
-            </Toolbar>
-        </AppBar>
+        <>
+            <AppBar position="fixed">
+                <Toolbar variant="dense">
+                    <img
+                        src={logoSrc}
+                        alt="App bar logo"
+                        height={40}
+                        width={40}
+                    />
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexgrow: 1, m: 1 }}
+                    >
+                        {text}
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Toolbar />
+        </>
     )
 }
 

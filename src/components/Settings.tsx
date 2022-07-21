@@ -9,7 +9,7 @@ import {
     SelectChangeEvent,
 } from '@mui/material'
 import { SyntheticEvent } from 'react'
-import { Region, Type, SortBy } from '../views/Main'
+import { Region, Type, SortBy } from '../pages/Main'
 
 interface Props {
     region: Region
