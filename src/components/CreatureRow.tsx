@@ -1,8 +1,36 @@
-import { Divider } from '@mui/material';
+import { Divider } from '@mui/material'
+import { CSSProperties } from 'react'
 
-const Creature = (props) => {
-    const { style, index, data } = props;
-    const creature = data[index];
+interface Creature {
+    'file-name': string
+    icon_uri: string
+    name: Langs
+    price: number
+    availability: Availability
+    shadow: string | undefined
+}
+
+interface Availability {
+    location: string | undefined
+    time: string
+    'month-array-northern': number[]
+    'month-array-southern': number[]
+    'time-array': number[]
+    isAllDay: boolean
+}
+
+interface Langs {
+    'name-USen': string
+}
+
+interface Props {
+    style: CSSProperties
+    index: number
+    data: Creature[]
+}
+
+const CreatureRow = ({ style, index, data }: Props) => {
+    const creature = data[index]
 
     return (
         <div style={style}>
@@ -44,7 +72,8 @@ const Creature = (props) => {
                 <Divider />
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Creature;
+export default CreatureRow
+export { Creature }

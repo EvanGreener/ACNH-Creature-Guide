@@ -6,19 +6,30 @@ import {
     MenuItem,
     FormControlLabel,
     Switch,
+    SelectChangeEvent,
 } from '@mui/material';
-import { Region, Type, SortBy } from '../views';
+import { SyntheticEvent } from 'react';
+import { Region, Type, SortBy } from '../views/Main';
 
-const Settings = (props) => {
-    const {
-        region,
-        type,
-        sortBy,
-        handleChangeRegion,
-        handleChangeType,
-        handleChangeSoryBy,
-        handleChangeAllDay,
-    } = props;
+interface Props {
+    region: Region,
+    type: Type,
+    sortBy: SortBy,
+    handleChangeRegion: (event: SelectChangeEvent<Region>) => void ,
+    handleChangeType: (event: SelectChangeEvent<Type>) => void,
+    handleChangeSoryBy: (event: SelectChangeEvent<SortBy>) => void,
+    handleChangeAllDay: (event: SyntheticEvent<Element, Event>, checked: boolean) => void, 
+}
+
+const Settings = ({
+    region,
+    type,
+    sortBy,
+    handleChangeRegion,
+    handleChangeType,
+    handleChangeSoryBy,
+    handleChangeAllDay,
+}: Props) => {
 
     return (
         <Paper

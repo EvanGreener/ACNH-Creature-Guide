@@ -1,8 +1,10 @@
 import { Paper, Typography } from '@mui/material';
 
-const Header = (props) => {
-    const { text } = props;
+interface Props {
+    text: string,
+}
 
+const Header = ({text}: Props) => {
     return (
         <Paper
             elevation={16}

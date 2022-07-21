@@ -1,6 +1,11 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
-const Navbar = (props) => {
-    const { logoSrc, text } = props;
+
+interface Props {
+    logoSrc: string, 
+    text:string,
+}
+
+const Navbar = ({ logoSrc, text }: Props) => {
 
     return (
         <AppBar position="static">
