@@ -1,10 +1,10 @@
-import { Paper, Typography } from '@mui/material';
+import { Paper, Typography } from '@mui/material'
 
 interface Props {
-    text: string,
+    text: string
 }
 
-const Header = ({text}: Props) => {
+const Header = ({ text }: Props) => {
     return (
         <Paper
             elevation={16}
@@ -24,7 +24,7 @@ const Header = ({text}: Props) => {
                 {text}
             </Typography>
         </Paper>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header

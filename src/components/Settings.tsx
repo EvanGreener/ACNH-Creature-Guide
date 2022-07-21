@@ -7,18 +7,21 @@ import {
     FormControlLabel,
     Switch,
     SelectChangeEvent,
-} from '@mui/material';
-import { SyntheticEvent } from 'react';
-import { Region, Type, SortBy } from '../views/Main';
+} from '@mui/material'
+import { SyntheticEvent } from 'react'
+import { Region, Type, SortBy } from '../views/Main'
 
 interface Props {
-    region: Region,
-    type: Type,
-    sortBy: SortBy,
-    handleChangeRegion: (event: SelectChangeEvent<Region>) => void ,
-    handleChangeType: (event: SelectChangeEvent<Type>) => void,
-    handleChangeSoryBy: (event: SelectChangeEvent<SortBy>) => void,
-    handleChangeAllDay: (event: SyntheticEvent<Element, Event>, checked: boolean) => void, 
+    region: Region
+    type: Type
+    sortBy: SortBy
+    handleChangeRegion: (event: SelectChangeEvent<Region>) => void
+    handleChangeType: (event: SelectChangeEvent<Type>) => void
+    handleChangeSoryBy: (event: SelectChangeEvent<SortBy>) => void
+    handleChangeAllDay: (
+        event: SyntheticEvent<Element, Event>,
+        checked: boolean
+    ) => void
 }
 
 const Settings = ({
@@ -30,7 +33,6 @@ const Settings = ({
     handleChangeSoryBy,
     handleChangeAllDay,
 }: Props) => {
-
     return (
         <Paper
             elevation={12}
@@ -78,7 +80,7 @@ const Settings = ({
                 sx={{ m: 1 }}
             />
         </Paper>
-    );
-};
+    )
+}
 
-export default Settings;
+export default Settings

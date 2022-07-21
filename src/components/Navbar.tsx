@@ -1,12 +1,11 @@
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material'
 
 interface Props {
-    logoSrc: string, 
-    text:string,
+    logoSrc: string
+    text: string
 }
 
 const Navbar = ({ logoSrc, text }: Props) => {
-
     return (
         <AppBar position="static">
             <Toolbar>
@@ -20,7 +19,7 @@ const Navbar = ({ logoSrc, text }: Props) => {
                 </Typography>
             </Toolbar>
         </AppBar>
-    );
-};
+    )
+}
 
-export default Navbar;
+export default Navbar
