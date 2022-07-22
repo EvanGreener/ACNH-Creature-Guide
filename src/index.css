@@ -1,13 +1,9 @@
 html,
 body {
-    background-image: url(./assets/bg3.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url(assets/blue2.jpeg);
     background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    width: 100%;
+    background-repeat: repeat;
+    background-size: contain;
 }
 
 body {
@@ -19,26 +15,31 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
+@font-face {
+    font-family: 'FinkHeavy';
+    src: url('assets/FinkHeavy.woff2') format('woff2'),
+        url('assets/FinkHeavy.woff') format('woff');
+}
+
+@font-face {
+    font-family: dialog;
+    src: url('assets/dialog.otf');
+    font-weight: lighter;
 }
 
 .time {
     text-align: center;
     width: auto;
-    font-size: 1.5em;
 }
 
 .content > * {
-    padding: 0 1em;
+    padding: 1rem;
 }
 
 .paper-content {
-    height: 450px;
+    height: 400px;
     width: 100%;
-    font-size: 1.3vw;
-    background-color: #4caf50 !important;
+    font-size: 1.25vw;
 }
 
 /* For mobile devices */
@@ -56,4 +57,10 @@ code {
 }
 span.cell {
     width: 16%;
+    font-family: dialog;
+}
+
+.settings {
+    background-image: url(assets/dialogue2.png);
+    background-size: cover;
 }

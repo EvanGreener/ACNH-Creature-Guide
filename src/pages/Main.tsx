@@ -1,25 +1,39 @@
 import { SyntheticEvent, useState, useEffect } from 'react'
 import {
+    Box,
     createTheme,
-    Grid,
     SelectChangeEvent,
     Theme,
     ThemeProvider,
+    Typography,
 } from '@mui/material'
-import { green } from '@mui/material/colors'
+// import { green } from '@mui/material/colors'
 import CreatureList from '../components/CreatureList'
 import Header from '../components/Header'
 import Settings from '../components/Settings'
 import Navbar from '../components/Navbar'
 import leafDark from '../assets/leaf_dark.png'
 
+/*
+    oranges: ff8c4a, db6221, de791b, faa657
+    blues: 708fff, 5667e8, 00072b
+*/
+
+const primaryBg = '#faa657'
+const secondaryBg = '#3c7fde'
+const primaryText = '#00072b'
+
 const theme: Theme = createTheme({
     palette: {
         primary: {
-            main: green['A200'],
+            main: primaryBg,
         },
-        secondary: {
-            main: green[500],
+        background: {
+            default: secondaryBg,
+            paper: secondaryBg,
+        },
+        text: {
+            primary: primaryText,
         },
     },
 })
@@ -55,7 +69,9 @@ function timeToString(time: Date) {
     secs = secs < 10 ? '0' + secs : secs
     return (
         <div className="time">
-            <code>{hours + ':' + mins + ':' + secs + amPm}</code>
+            <Typography sx={{ fontSize: '2.5rem', fontFamily: 'FinkHeavy' }}>
+                {hours + ':' + mins + ':' + secs + amPm}
+            </Typography>
         </div>
     )
 }
@@ -93,39 +109,30 @@ const Main = () => {
         setAllDay(checked)
     }
 
-    const xsEverything = 12
-    const smCL = 9
-    const smSettings = 3
-
     return (
         <>
             <ThemeProvider theme={theme}>
                 <Navbar logoSrc={leafDark} text="ACNH Creature Guide" />
                 <section className="content">
-                    {timeToString(time)}
-                    <Grid container spacing={{ xs: 2, md: 3 }}>
-                        <Grid item xs={xsEverything} sm={smSettings}>
-                            <Header text="Settings" />
-                            <Settings
-                                region={region}
-                                type={type}
-                                sortBy={sortBy}
-                                handleChangeRegion={handleChangeRegion}
-                                handleChangeType={handleChangeType}
-                                handleChangeSoryBy={handleChangeSoryBy}
-                                handleChangeAllDay={handleChangeAllDay}
-                            />
-                        </Grid>
-                        <Grid item xs={xsEverything} sm={smCL}>
-                            <Header text="Obtainable creatures!!" />
-                            <CreatureList
-                                type={type}
-                                region={region}
-                                allDay={allDay}
-                                sortBy={sortBy}
-                            />
-                        </Grid>
-                    </Grid>
+                    <Box sx={{ m: 1 }}>
+                        <Header text="• • • • • Obtainable creatures!! • • • • •" />
+                        {timeToString(time)}
+                        <Settings
+                            region={region}
+                            sortBy={sortBy}
+                            type={type}
+                            handleChangeAllDay={handleChangeAllDay}
+                            handleChangeRegion={handleChangeRegion}
+                            handleChangeSoryBy={handleChangeSoryBy}
+                            handleChangeType={handleChangeType}
+                        />
+                        <CreatureList
+                            type={type}
+                            region={region}
+                            allDay={allDay}
+                            sortBy={sortBy}
+                        />
+                    </Box>
                 </section>
             </ThemeProvider>
         </>

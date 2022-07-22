@@ -149,12 +149,9 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
 
     return (
         <>
-            <Paper
-                elevation={12}
-                className="paper-content"
-            >
+            <Paper elevation={12} className="paper-content">
                 <FixedSizeList
-                    height={450}
+                    height={400}
                     width="100%"
                     itemSize={60}
                     itemCount={shown.length}
@@ -169,7 +166,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
             <Backdrop
                 sx={{
                     color: '#fff',
-                    zIndex: (theme) => theme.zIndex.drawer + 1,
+                    zIndex: (theme) => theme.zIndex.drawer + 2,
                 }}
                 open={fetchingData}
             >

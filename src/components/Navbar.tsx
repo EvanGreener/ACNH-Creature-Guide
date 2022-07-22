@@ -19,7 +19,16 @@ const Navbar = ({ logoSrc, text }: Props) => {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexgrow: 1, m: 1 }}
+                        className="app-bar-text"
+                        sx={{
+                            flexgrow: 1,
+                            m: 1,
+                            fontFamily: 'FinkHeavy',
+                            fontSize: '1.5rem',
+                            marginBottom: 0,
+                            letterSpacing: '4px',
+                            wordSpacing: '7px',
+                        }}
                     >
                         {text}
                     </Typography>
