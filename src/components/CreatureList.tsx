@@ -97,6 +97,25 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
                 break
         }
 
+        // Hacky way of adding header
+        newShown.unshift({
+            name: {
+                'name-USen': 'NAME',
+            },
+            price: -1,
+            shadow: 'SHADOW SIZE',
+            availability: {
+                time: 'TIME AVAIL.',
+                location: 'LOCATION',
+                'month-array-northern': [0],
+                'month-array-southern': [0],
+                'time-array': [0],
+                isAllDay: false,
+            },
+            icon_uri: '',
+            'file-name': '',
+        })
+
         setShown(newShown)
     }, [allDay, sortBy, type, region, fish, sea, bugs])
 

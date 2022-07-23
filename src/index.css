@@ -3,7 +3,7 @@ body {
     background-image: url(assets/blue2.jpeg);
     background-attachment: fixed;
     background-repeat: repeat;
-    background-size: contain;
+    background-size: 400px;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
 }
 
 @font-face {
-    font-family: 'FinkHeavy';
+    font-family: FinkHeavy;
     src: url('assets/FinkHeavy.woff2') format('woff2'),
         url('assets/FinkHeavy.woff') format('woff');
 }
@@ -37,7 +37,6 @@ body {
 }
 
 .paper-content {
-    height: 400px;
     width: 100%;
     font-size: 1.25vw;
 }
@@ -49,6 +48,7 @@ body {
         height: fit-content;
     }
 }
+
 .row {
     display: flex;
     flex-flow: row wrap;

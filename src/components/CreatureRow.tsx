@@ -1,4 +1,4 @@
-// import { Divider } from '@mui/material'
+import { Divider } from '@mui/material'
 import { CSSProperties } from 'react'
 
 interface Creature {
@@ -31,44 +31,65 @@ interface Props {
 
 const CreatureRow = ({ style, index, data }: Props) => {
     const creature = data[index]
+    const backgroundColor = index === 0 ? '#faa657' : ''
+    const font = index === 0 ? 'FinkHeavy' : 'dialog'
+    const fontSize = index === 0 ? '2vw' : '1.25vw'
+    const fontSizeCellOne = index === 0 ? '2vw' : '1.5vw'
 
     return (
         <div style={style}>
-            <div className="row">
-                <img
-                    src={creature['icon_uri']}
-                    alt="icon"
-                    height={50}
-                    width={50}
-                    className="cell"
-                />
-                {/* <Divider orientation="vertical" flexItem /> */}
+            <div className="row" style={{ backgroundColor: backgroundColor }}>
+                {index === 0 ? (
+                    <div style={{ height: 60, width: 60 }}></div>
+                ) : (
+                    <img
+                        src={creature['icon_uri']}
+                        alt="icon"
+                        height={60}
+                        width={60}
+                        className="cell"
+                    />
+                )}
+
                 <span
                     className="cell"
-                    style={{ fontFamily: 'FinkHeavy', fontSize: '1.75vw' }}
+                    style={{
+                        fontFamily: 'FinkHeavy',
+                        fontSize: fontSizeCellOne,
+                    }}
                 >
                     {creature.name['name-USen']}
                 </span>
-                {/* <Divider orientation="vertical" flexItem /> */}
-                <span className="cell">{creature.price} bells</span>
-                {/* <Divider orientation="vertical" flexItem /> */}
-                <span className="cell">
+                <span
+                    className="cell"
+                    style={{ fontFamily: font, fontSize: fontSize }}
+                >
+                    {index === 0 ? 'PRICE' : creature.price + ' Bells'}
+                </span>
+                <span
+                    className="cell"
+                    style={{ fontFamily: font, fontSize: fontSize }}
+                >
                     {!creature.availability.location
                         ? 'Deep sea diving'
                         : creature.availability.location}
                 </span>
-                {/* <Divider orientation="vertical" flexItem /> */}
-                <span className="cell">
+                <span
+                    className="cell"
+                    style={{ fontFamily: font, fontSize: fontSize }}
+                >
                     {!creature.shadow ? 'N/A' : creature.shadow}
                 </span>
-                {/* <Divider orientation="vertical" flexItem /> */}
-                <span className="cell">
+                <span
+                    className="cell"
+                    style={{ fontFamily: font, fontSize: fontSize }}
+                >
                     {creature.availability.time === ''
                         ? 'All day'
                         : creature.availability.time}
                 </span>
             </div>
-            {/* <Divider /> */}
+            <Divider />
         </div>
     )
 }

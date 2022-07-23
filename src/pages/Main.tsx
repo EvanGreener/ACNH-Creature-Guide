@@ -69,7 +69,7 @@ function timeToString(time: Date) {
     secs = secs < 10 ? '0' + secs : secs
     return (
         <div className="time">
-            <Typography sx={{ fontSize: '2.5rem', fontFamily: 'FinkHeavy' }}>
+            <Typography sx={{ fontSize: '4vw', fontFamily: 'FinkHeavy' }}>
                 {hours + ':' + mins + ':' + secs + amPm}
             </Typography>
         </div>
