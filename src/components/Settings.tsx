@@ -5,11 +5,13 @@ import {
     Select,
     MenuItem,
     FormControlLabel,
+    Typography,
     Switch,
     SelectChangeEvent,
     Button,
     Popper,
     Zoom,
+    useMediaQuery,
 } from '@mui/material'
 import { MouseEventHandler, SyntheticEvent, useState } from 'react'
 import { Region, Type, SortBy } from '../pages/Main'
@@ -44,6 +46,11 @@ const Settings = ({
         setAnchorEl(anchorEl ? null : event.currentTarget)
     }
 
+    const mq = useMediaQuery('(min-width: 600px)')
+
+    const dialogueH = mq ? '12vw' : '33vw'
+    const dialogueW = mq ? '36vw' : '99vw'
+
     return (
         <>
             <Button variant="contained" onClick={handleClick} sx={{ m: 1 }}>
@@ -52,7 +59,7 @@ const Settings = ({
             <Popper
                 open={open}
                 anchorEl={anchorEl}
-                placement="bottom-end"
+                placement="bottom"
                 transition
             >
                 {({ TransitionProps }) => (
@@ -60,8 +67,8 @@ const Settings = ({
                         <Box
                             className="settings"
                             sx={{
-                                minHeight: '10rem',
-                                minWidth: '30rem',
+                                minHeight: dialogueH,
+                                minWidth: dialogueW,
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
@@ -73,12 +80,17 @@ const Settings = ({
                                     label="Region"
                                     onChange={handleChangeRegion}
                                     value={region}
+                                    autoWidth
                                 >
                                     <MenuItem value={Region.NORTH}>
-                                        North
+                                        <Typography variant="body2">
+                                            North
+                                        </Typography>
                                     </MenuItem>
                                     <MenuItem value={Region.SOUTH}>
-                                        South
+                                        <Typography variant="body2">
+                                            South
+                                        </Typography>
                                     </MenuItem>
                                 </Select>
                             </FormControl>
@@ -88,11 +100,28 @@ const Settings = ({
                                     label="Type"
                                     onChange={handleChangeType}
                                     value={type}
+                                    autoWidth
                                 >
-                                    <MenuItem value={Type.ALL}>All</MenuItem>
-                                    <MenuItem value={Type.SEA}>Sea</MenuItem>
-                                    <MenuItem value={Type.FISH}>Fish</MenuItem>
-                                    <MenuItem value={Type.BUGS}>Bugs</MenuItem>
+                                    <MenuItem value={Type.ALL}>
+                                        <Typography variant="body2">
+                                            All
+                                        </Typography>
+                                    </MenuItem>
+                                    <MenuItem value={Type.SEA}>
+                                        <Typography variant="body2">
+                                            Sea
+                                        </Typography>
+                                    </MenuItem>
+                                    <MenuItem value={Type.FISH}>
+                                        <Typography variant="body2">
+                                            Fish
+                                        </Typography>
+                                    </MenuItem>
+                                    <MenuItem value={Type.BUGS}>
+                                        <Typography variant="body2">
+                                            Bugs
+                                        </Typography>
+                                    </MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl sx={{ m: 1 }}>
@@ -101,18 +130,27 @@ const Settings = ({
                                     label="Sort By:"
                                     value={sortBy}
                                     onChange={handleChangeSoryBy}
+                                    autoWidth
                                 >
                                     <MenuItem value={SortBy.PRICE}>
-                                        Price
+                                        <Typography variant="body2">
+                                            Price
+                                        </Typography>
                                     </MenuItem>
                                     <MenuItem value={SortBy.LOCATION}>
-                                        Location
+                                        <Typography variant="body2">
+                                            Location
+                                        </Typography>
                                     </MenuItem>
                                     <MenuItem value={SortBy.NAME}>
-                                        Name
+                                        <Typography variant="body2">
+                                            Name
+                                        </Typography>
                                     </MenuItem>
                                     <MenuItem value={SortBy.NONE}>
-                                        None
+                                        <Typography variant="body2">
+                                            None
+                                        </Typography>
                                     </MenuItem>
                                 </Select>
                             </FormControl>
@@ -120,7 +158,6 @@ const Settings = ({
                                 control={<Switch defaultChecked />}
                                 label="All day"
                                 onChange={handleChangeAllDay}
-                                sx={{ m: 1 }}
                             />
                         </Box>
                     </Zoom>
