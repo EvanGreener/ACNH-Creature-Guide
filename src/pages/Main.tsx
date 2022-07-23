@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState, useEffect } from 'react'
 import {
     Box,
+    Paper,
     createTheme,
     SelectChangeEvent,
     Theme,
@@ -68,11 +69,31 @@ function timeToString(time: Date) {
     mins = mins < 10 ? '0' + mins : mins
     secs = secs < 10 ? '0' + secs : secs
     return (
-        <div className="time">
-            <Typography sx={{ fontSize: '4vw', fontFamily: 'FinkHeavy' }}>
-                {hours + ':' + mins + ':' + secs + amPm}
-            </Typography>
-        </div>
+        <Box
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+            }}
+        >
+            <Paper
+                elevation={12}
+                className="time"
+                sx={{ backgroundColor: primaryText }}
+            >
+                <Typography
+                    sx={{
+                        color: primaryBg,
+                        fontSize: '3.5vw',
+                        fontFamily: 'FinkHeavy',
+                        ml: 1,
+                        mr: 1,
+                        mb: -1,
+                    }}
+                >
+                    {hours + ':' + mins + ':' + secs + amPm}
+                </Typography>
+            </Paper>
+        </Box>
     )
 }
 
@@ -115,7 +136,7 @@ const Main = () => {
                 <Navbar logoSrc={leafDark} text="ACNH Creature Guide" />
                 <section className="content">
                     <Box sx={{ m: 1 }}>
-                        <Header text="• • • • • Obtainable creatures!! • • • • •" />
+                        <Header />
                         {timeToString(time)}
                         <Settings
                             region={region}
@@ -132,6 +153,20 @@ const Main = () => {
                             allDay={allDay}
                             sortBy={sortBy}
                         />
+                    </Box>
+                    <Box
+                        sx={{
+                            textAlign: 'right',
+
+                            mr: 5,
+                        }}
+                    >
+                        <Typography
+                            variant="h5"
+                            sx={{ fontFamily: 'FinkHeavy' }}
+                        >
+                            E & J
+                        </Typography>
                     </Box>
                 </section>
             </ThemeProvider>

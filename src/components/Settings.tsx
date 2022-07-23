@@ -40,14 +40,11 @@ const Settings = ({
 }: Props) => {
     const [open, setOpen] = useState<boolean>(false)
     const [anchorEl, setAnchorEl] = useState<Element | null>(null)
-
     const handleClick: MouseEventHandler = (event) => {
         setOpen(!open)
         setAnchorEl(anchorEl ? null : event.currentTarget)
     }
-
     const mq = useMediaQuery('(min-width: 600px)')
-
     const dialogueH = mq ? '12vw' : '33vw'
     const dialogueW = mq ? '36vw' : '99vw'
 

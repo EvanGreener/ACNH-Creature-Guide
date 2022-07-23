@@ -29,7 +29,7 @@ body {
 
 .time {
     text-align: center;
-    width: auto;
+    width: fit-content;
 }
 
 .content > * {
