@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ACNH-Creature-Guide/static/css/main.3be62a54.css",
+    "main.css": "/ACNH-Creature-Guide/static/css/main.b98fd26e.css",
     "main.js": "/ACNH-Creature-Guide/static/js/main.3e75806b.js",
     "static/media/dialog.otf": "/ACNH-Creature-Guide/static/media/dialog.ae7d20d5dcdbc492bdfc.otf",
     "static/media/blue2.jpeg": "/ACNH-Creature-Guide/static/media/blue2.8096d39d128cbbba6b04.jpeg",
@@ -8,11 +8,11 @@
     "static/media/FinkHeavy.woff": "/ACNH-Creature-Guide/static/media/FinkHeavy.c0d9aa49dea66717bc50.woff",
     "static/media/FinkHeavy.woff2": "/ACNH-Creature-Guide/static/media/FinkHeavy.d4739ad6d47c07cb2283.woff2",
     "index.html": "/ACNH-Creature-Guide/index.html",
-    "main.3be62a54.css.map": "/ACNH-Creature-Guide/static/css/main.3be62a54.css.map",
+    "main.b98fd26e.css.map": "/ACNH-Creature-Guide/static/css/main.b98fd26e.css.map",
     "main.3e75806b.js.map": "/ACNH-Creature-Guide/static/js/main.3e75806b.js.map"
   },
   "entrypoints": [
-    "static/css/main.3be62a54.css",
+    "static/css/main.b98fd26e.css",
     "static/js/main.3e75806b.js"
   ]
 }
