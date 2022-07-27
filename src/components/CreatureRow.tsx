@@ -1,5 +1,6 @@
-import { Divider } from '@mui/material'
 import { CSSProperties } from 'react'
+import config from '../config.json'
+import { Box, Grid, Typography } from '@mui/material'
 
 interface Creature {
     'file-name': string
@@ -30,68 +31,186 @@ interface Props {
 }
 
 const CreatureRow = ({ style, index, data }: Props) => {
+    const { SEA_LOCATION_TEXT, BUG_SHADOW_SIZE_TEXT, ALL_DAY_TEXT } = config
+    const { PRIMARY_BG } = config.THEME_COLORS
+    const { HEADER, NORMAL, NAME } = config.FONTS
+    const { NAME_H, PRICE, LOCATION, SHADOW_SIZE, TIME_AVAILABLE } =
+        config.TABLE_COLUMN_HEADERS
+    const { ROW_HEIGHT, LINE_HEIGHT } = config.DIMENS
     const creature = data[index]
-    const backgroundColor = index === 0 ? '#faa657' : ''
-    const font = index === 0 ? 'FinkHeavy' : 'dialog'
-    const fontSize = index === 0 ? '2vw' : '1.25vw'
-    const fontSizeCellOne = index === 0 ? '2vw' : '1.5vw'
+    let row
 
-    return (
-        <div style={style}>
-            <div className="row" style={{ backgroundColor: backgroundColor }}>
-                {index === 0 ? (
-                    <div style={{ height: 60, width: 60 }}></div>
-                ) : (
-                    <img
-                        src={creature['icon_uri']}
-                        alt="icon"
-                        height={60}
-                        width={60}
-                        className="cell"
-                    />
-                )}
-
-                <span
-                    className="cell"
-                    style={{
-                        fontFamily: 'FinkHeavy',
-                        fontSize: fontSizeCellOne,
+    if (index === 0) {
+        row = (
+            <div style={style}>
+                <Box
+                    sx={{
+                        backgroundColor: PRIMARY_BG,
+                        lineHeight: LINE_HEIGHT,
                     }}
                 >
-                    {creature.name['name-USen']}
-                </span>
-                <span
-                    className="cell"
-                    style={{ fontFamily: font, fontSize: fontSize }}
-                >
-                    {index === 0 ? 'PRICE' : creature.price + ' Bells'}
-                </span>
-                <span
-                    className="cell"
-                    style={{ fontFamily: font, fontSize: fontSize }}
-                >
-                    {!creature.availability.location
-                        ? 'Deep sea diving'
-                        : creature.availability.location}
-                </span>
-                <span
-                    className="cell"
-                    style={{ fontFamily: font, fontSize: fontSize }}
-                >
-                    {!creature.shadow ? 'N/A' : creature.shadow}
-                </span>
-                <span
-                    className="cell"
-                    style={{ fontFamily: font, fontSize: fontSize }}
-                >
-                    {creature.availability.time === ''
-                        ? 'All day'
-                        : creature.availability.time}
-                </span>
+                    <Grid container spacing={1}>
+                        <Grid item xs={2} md={2}>
+                            <div
+                                style={{
+                                    height: ROW_HEIGHT,
+                                    width: ROW_HEIGHT,
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={3} md={2}>
+                            <Typography
+                                variant="subtitle1"
+                                sx={{
+                                    fontFamily: HEADER,
+                                }}
+                            >
+                                {NAME_H}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3} md={2}>
+                            <Typography
+                                variant="subtitle1"
+                                sx={{
+                                    fontFamily: HEADER,
+                                }}
+                            >
+                                {PRICE}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={4} md={2}>
+                            <Typography
+                                variant="subtitle1"
+                                sx={{
+                                    fontFamily: HEADER,
+                                }}
+                            >
+                                {LOCATION}
+                            </Typography>
+                        </Grid>
+                        <Box
+                            item
+                            component={Grid}
+                            md={2}
+                            display={{ xs: 'none', sm: 'none', md: 'block' }}
+                        >
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    fontFamily: HEADER,
+                                }}
+                            >
+                                {SHADOW_SIZE}
+                            </Typography>
+                        </Box>
+                        <Box
+                            item
+                            component={Grid}
+                            md={2}
+                            display={{ xs: 'none', sm: 'none', md: 'block' }}
+                        >
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    fontFamily: HEADER,
+                                }}
+                            >
+                                {TIME_AVAILABLE}
+                            </Typography>
+                        </Box>
+                    </Grid>
+                </Box>
             </div>
-            <Divider />
-        </div>
-    )
+        )
+    } else {
+        row = (
+            <div style={style}>
+                <Box
+                    sx={{
+                        lineHeight: LINE_HEIGHT,
+                    }}
+                >
+                    <Grid container spacing={1}>
+                        <Grid item xs={2} md={2}>
+                            <img
+                                src={creature['icon_uri']}
+                                alt="icon"
+                                height={ROW_HEIGHT}
+                                width={ROW_HEIGHT}
+                            />
+                        </Grid>
+                        <Grid item xs={3} md={2}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: NAME,
+                                }}
+                            >
+                                {creature.name['name-USen']}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3} md={2}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: NORMAL,
+                                }}
+                            >
+                                {creature.price}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={4} md={2}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: NORMAL,
+                                }}
+                            >
+                                {!creature.availability.location
+                                    ? SEA_LOCATION_TEXT
+                                    : creature.availability.location}
+                            </Typography>
+                        </Grid>
+                        <Box
+                            item
+                            component={Grid}
+                            md={2}
+                            display={{ xs: 'none', sm: 'none', md: 'block' }}
+                        >
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: NORMAL,
+                                }}
+                            >
+                                {!creature.shadow
+                                    ? BUG_SHADOW_SIZE_TEXT
+                                    : creature.shadow}
+                            </Typography>
+                        </Box>
+                        <Box
+                            item
+                            component={Grid}
+                            md={2}
+                            display={{ xs: 'none', sm: 'none', md: 'block' }}
+                        >
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: NORMAL,
+                                }}
+                            >
+                                {creature.availability.time === ''
+                                    ? ALL_DAY_TEXT
+                                    : creature.availability.time}
+                            </Typography>
+                        </Box>
+                    </Grid>
+                </Box>
+            </div>
+        )
+    }
+    return row
 }
 
 export default CreatureRow

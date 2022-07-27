@@ -41,14 +41,6 @@ body {
     font-size: 1.25vw;
 }
 
-/* For mobile devices */
-@media only screen and (max-width: 600px) {
-    .paper-content {
-        font-size: 2.5vw;
-        height: fit-content;
-    }
-}
-
 .row {
     display: flex;
     flex-flow: row wrap;
@@ -58,9 +50,4 @@ body {
 span.cell {
     width: 16%;
     font-family: dialog;
-}
-
-.settings {
-    background-image: url(assets/dialogue2.png);
-    background-size: cover;
 }

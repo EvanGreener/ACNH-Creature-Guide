@@ -5,6 +5,7 @@ import { Backdrop, CircularProgress } from '@mui/material'
 import CreatureRow, { Creature } from './CreatureRow'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import config from '../config.json'
 
 interface Props {
     allDay: boolean
@@ -19,6 +20,9 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
     const [sea, setSea] = useState<Creature[]>([])
     const [bugs, setBugs] = useState<Creature[]>([])
     const [shown, setShown] = useState<Creature[]>([])
+
+    const { BUGS, FISH, SEA } = config.API
+    const { SEA_LOCATION_TEXT } = config
 
     // Function to update the creatures currently being shown
     useEffect(() => {
@@ -85,9 +89,9 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
                     if (locationA && locationB) {
                         return locationA.localeCompare(locationB)
                     } else if (locationA) {
-                        return locationA.localeCompare('Deep sea diving')
+                        return locationA.localeCompare(SEA_LOCATION_TEXT)
                     } else if (locationB) {
-                        return 'Deep sea diving'.localeCompare(locationB)
+                        return SEA_LOCATION_TEXT.localeCompare(locationB)
                     } else {
                         return 0
                     }
@@ -98,15 +102,16 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
         }
 
         // Hacky way of adding header
+        // Values don't really matter, see CreatureRow.tsx
         newShown.unshift({
             name: {
-                'name-USen': 'NAME',
+                'name-USen': '',
             },
             price: -1,
-            shadow: 'SHADOW SIZE',
+            shadow: '',
             availability: {
-                time: 'TIME AVAIL.',
-                location: 'LOCATION',
+                time: '',
+                location: '',
                 'month-array-northern': [0],
                 'month-array-southern': [0],
                 'time-array': [0],
@@ -117,12 +122,12 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
         })
 
         setShown(newShown)
-    }, [allDay, sortBy, type, region, fish, sea, bugs])
+    }, [allDay, sortBy, type, region, fish, sea, bugs, SEA_LOCATION_TEXT])
 
     useEffect(() => {
         let mounted = true
         // Fetch all the creatures and store them in the state object
-        fetch('https://acnhapi.com/v1a/fish')
+        fetch(FISH)
             .then((response) => {
                 if (response.ok) {
                     return response.json()
@@ -135,7 +140,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
                 }
             })
 
-        fetch('https://acnhapi.com/v1a/sea')
+        fetch(SEA)
             .then((response) => {
                 if (response.ok) {
                     return response.json()
@@ -148,7 +153,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
                 }
             })
 
-        fetch('https://acnhapi.com/v1a/bugs')
+        fetch(BUGS)
             .then((response) => {
                 if (response.ok) {
                     return response.json()
@@ -164,7 +169,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
         return () => {
             mounted = false
         }
-    }, [])
+    })
 
     return (
         <>
@@ -172,7 +177,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
                 <FixedSizeList
                     height={400}
                     width="100%"
-                    itemSize={60}
+                    itemSize={70}
                     itemCount={shown.length}
                     itemData={shown}
                     itemKey={(index, data) => {
@@ -185,7 +190,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
             <Backdrop
                 sx={{
                     color: '#fff',
-                    zIndex: (theme) => theme.zIndex.drawer + 2,
+                    zIndex: (theme) => theme.zIndex.drawer + 1,
                 }}
                 open={fetchingData}
             >

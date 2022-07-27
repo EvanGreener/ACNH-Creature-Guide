@@ -1,7 +1,6 @@
-import { SyntheticEvent, useState, useEffect } from 'react'
+import { SyntheticEvent, useState } from 'react'
 import {
     Box,
-    Paper,
     createTheme,
     SelectChangeEvent,
     Theme,
@@ -14,27 +13,23 @@ import Header from '../components/Header'
 import Settings from '../components/Settings'
 import Navbar from '../components/Navbar'
 import leafDark from '../assets/leaf_dark.png'
+import Time from '../components/Time'
+import config from '../config.json'
 
-/*
-    oranges: ff8c4a, db6221, de791b, faa657
-    blues: 708fff, 5667e8, 00072b
-*/
-
-const primaryBg = '#faa657'
-const secondaryBg = '#3c7fde'
-const primaryText = '#00072b'
+const { PRIMARY_BG, PRIMARY_TEXT, SECONDARY_BG } = config.THEME_COLORS
+const { TITLE } = config
 
 const theme: Theme = createTheme({
     palette: {
         primary: {
-            main: primaryBg,
+            main: PRIMARY_BG,
         },
         background: {
-            default: secondaryBg,
-            paper: secondaryBg,
+            default: SECONDARY_BG,
+            paper: SECONDARY_BG,
         },
         text: {
-            primary: primaryText,
+            primary: PRIMARY_TEXT,
         },
     },
 })
@@ -58,71 +53,21 @@ enum SortBy {
     NONE = 'None',
 }
 
-function timeToString(time: Date) {
-    let hours: string | number = time.getHours()
-    let mins: string | number = time.getMinutes()
-    let secs: string | number = time.getSeconds()
-    const amPm = hours < 12 ? 'am' : 'pm'
-    hours %= 12
-
-    hours = hours === 0 ? 12 : hours
-    mins = mins < 10 ? '0' + mins : mins
-    secs = secs < 10 ? '0' + secs : secs
-    return (
-        <Box
-            sx={{
-                display: 'flex',
-                justifyContent: 'center',
-            }}
-        >
-            <Paper
-                elevation={12}
-                className="time"
-                sx={{ backgroundColor: primaryText }}
-            >
-                <Typography
-                    sx={{
-                        color: primaryBg,
-                        fontSize: '3.5vw',
-                        fontFamily: 'FinkHeavy',
-                        ml: 1,
-                        mr: 1,
-                        mb: -1,
-                    }}
-                >
-                    {hours + ':' + mins + ':' + secs + amPm}
-                </Typography>
-            </Paper>
-        </Box>
-    )
-}
-
 const Main = () => {
-    const [time, setTime] = useState<Date>(new Date())
     const [allDay, setAllDay] = useState<boolean>(true)
     const [region, setRegion] = useState<Region>(Region.NORTH)
     const [type, setType] = useState<Type>(Type.ALL)
     const [sortBy, setSortBy] = useState<SortBy>(SortBy.PRICE)
 
-    useEffect(() => {
-        /**
-         * Update the time display every second
-         */
-        setInterval(() => setTime(new Date()), 1000)
-    }, [])
-
     const handleChangeRegion = (event: SelectChangeEvent<Region>) => {
         setRegion(event.target.value as Region)
     }
-
     const handleChangeType = (event: SelectChangeEvent<Type>) => {
         setType(event.target.value as Type)
     }
-
     const handleChangeSoryBy = (event: SelectChangeEvent<SortBy>) => {
         setSortBy(event.target.value as SortBy)
     }
-
     const handleChangeAllDay = (
         _event: SyntheticEvent<Element, Event>,
         checked: boolean
@@ -133,11 +78,11 @@ const Main = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <Navbar logoSrc={leafDark} text="ACNH Creature Guide" />
+                <Navbar logoSrc={leafDark} text={TITLE} />
                 <section className="content">
                     <Box sx={{ m: 1 }}>
                         <Header />
-                        {timeToString(time)}
+                        <Time />
                         <Settings
                             region={region}
                             sortBy={sortBy}
@@ -157,7 +102,6 @@ const Main = () => {
                     <Box
                         sx={{
                             textAlign: 'right',
-
                             mr: 5,
                         }}
                     >

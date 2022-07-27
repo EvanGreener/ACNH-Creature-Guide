@@ -1,4 +1,3 @@
-// import { Paper, Typography } from '@mui/material'
 import header from '../assets/header2.png'
 
 const Header = () => {
@@ -6,7 +5,7 @@ const Header = () => {
         <img
             src={header}
             alt="header"
-            width="70%"
+            width="100%"
             style={{
                 display: 'block',
                 marginLeft: 'auto',

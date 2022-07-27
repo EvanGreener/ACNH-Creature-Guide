@@ -3,18 +3,19 @@ import {
     FormControl,
     InputLabel,
     Select,
+    Grid,
     MenuItem,
     FormControlLabel,
     Typography,
     Switch,
     SelectChangeEvent,
     Button,
-    Popper,
-    Zoom,
-    useMediaQuery,
+    Popover,
 } from '@mui/material'
 import { MouseEventHandler, SyntheticEvent, useState } from 'react'
 import { Region, Type, SortBy } from '../pages/Main'
+import dialogueImg from '../assets/dialogue2.png'
+import config from '../config.json'
 
 interface Props {
     region: Region
@@ -38,46 +39,60 @@ const Settings = ({
     handleChangeSoryBy,
     handleChangeAllDay,
 }: Props) => {
-    const [open, setOpen] = useState<boolean>(false)
     const [anchorEl, setAnchorEl] = useState<Element | null>(null)
+    const { ALL_DAY_TEXT } = config
+    const { DIALOGUE_HEIGHT, DIALOGUE_WIDTH } = config.DIMENS
     const handleClick: MouseEventHandler = (event) => {
-        setOpen(!open)
         setAnchorEl(anchorEl ? null : event.currentTarget)
     }
-    const mq = useMediaQuery('(min-width: 600px)')
-    const dialogueH = mq ? '12vw' : '33vw'
-    const dialogueW = mq ? '36vw' : '99vw'
+    const handleClose = () => setAnchorEl(null)
+    const open = Boolean(anchorEl)
+
+    const margin = 5
 
     return (
         <>
-            <Button variant="contained" onClick={handleClick} sx={{ m: 1 }}>
+            <Button
+                variant="contained"
+                onClick={handleClick}
+                sx={{ my: 1, typography: 'body2' }}
+            >
                 Filter
             </Button>
-            <Popper
+            <Popover
                 open={open}
                 anchorEl={anchorEl}
-                placement="bottom"
-                transition
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+                marginThreshold={0}
+                PaperProps={{
+                    elevation: 0,
+                    sx: {
+                        backgroundImage: `url(${dialogueImg})`,
+                        backgroundSize: 'contain',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundColor: 'transparent',
+                        minHeight: DIALOGUE_HEIGHT,
+                        minWidth: DIALOGUE_WIDTH,
+                    },
+                }}
             >
-                {({ TransitionProps }) => (
-                    <Zoom {...TransitionProps} timeout={250}>
-                        <Box
-                            className="settings"
-                            sx={{
-                                minHeight: dialogueH,
-                                minWidth: dialogueW,
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <FormControl sx={{ m: 1 }}>
+                <Box sx={{ mx: 5 }}>
+                    <Grid container>
+                        <Grid item xs={3}>
+                            <FormControl sx={{ my: margin }}>
                                 <InputLabel>Region</InputLabel>
                                 <Select
                                     label="Region"
                                     onChange={handleChangeRegion}
                                     value={region}
-                                    autoWidth
                                 >
                                     <MenuItem value={Region.NORTH}>
                                         <Typography variant="body2">
@@ -91,13 +106,14 @@ const Settings = ({
                                     </MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ m: 1 }}>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <FormControl sx={{ my: margin }}>
                                 <InputLabel>Type</InputLabel>
                                 <Select
                                     label="Type"
                                     onChange={handleChangeType}
                                     value={type}
-                                    autoWidth
                                 >
                                     <MenuItem value={Type.ALL}>
                                         <Typography variant="body2">
@@ -121,13 +137,14 @@ const Settings = ({
                                     </MenuItem>
                                 </Select>
                             </FormControl>
-                            <FormControl sx={{ m: 1 }}>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <FormControl sx={{ my: margin }}>
                                 <InputLabel>Sort By</InputLabel>
                                 <Select
                                     label="Sort By:"
                                     value={sortBy}
                                     onChange={handleChangeSoryBy}
-                                    autoWidth
                                 >
                                     <MenuItem value={SortBy.PRICE}>
                                         <Typography variant="body2">
@@ -151,15 +168,18 @@ const Settings = ({
                                     </MenuItem>
                                 </Select>
                             </FormControl>
+                        </Grid>
+                        <Grid item xs={3}>
                             <FormControlLabel
+                                sx={{ my: margin }}
                                 control={<Switch defaultChecked />}
-                                label="All day"
+                                label={ALL_DAY_TEXT}
                                 onChange={handleChangeAllDay}
                             />
-                        </Box>
-                    </Zoom>
-                )}
-            </Popper>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Popover>
         </>
     )
 }

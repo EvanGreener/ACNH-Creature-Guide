@@ -1,0 +1,39 @@
+{
+    "THEME_COLORS": {
+        "PRIMARY_TEXT": "#00072b",
+        "PRIMARY_BG": "#faa657",
+        "SECONDARY_BG": "#3c7fde"
+    },
+    "TITLE": "ACNH Creature Guide",
+    "API": {
+        "BUGS": "https://acnhapi.com/v1a/bugs",
+        "SEA": "https://acnhapi.com/v1a/sea",
+        "FISH": "https://acnhapi.com/v1a/fish"
+    },
+    "SEA_LOCATION_TEXT": "Deep sea diving",
+    "BUG_SHADOW_SIZE_TEXT": "N/A",
+    "ALL_DAY_TEXT": "All day",
+    "TABLE_COLUMN_HEADERS": {
+        "NAME_H": "NAME",
+        "PRICE": "PRICE (Bells)",
+        "LOCATION": "LOCATION",
+        "SHADOW_SIZE": "SHADOW_SIZE",
+        "TIME_AVAILABLE": "TIME AVAIL."
+    },
+    "FONTS": {
+        "HEADER": "FinkHeavy",
+        "NORMAL": "dialog",
+        "NAME": "FinkHeavy",
+        "SIZES": {
+            "HEADER_S": "2vw",
+            "NORMAL_S": "1.25vw",
+            "NAME_S": "1.5vw"
+        }
+    },
+    "DIMENS": {
+        "ROW_HEIGHT": 50,
+        "LINE_HEIGHT": "1.5",
+        "DIALOGUE_HEIGHT": 140,
+        "DIALOGUE_WIDTH": 420
+    }
+}
