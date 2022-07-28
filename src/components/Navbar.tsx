@@ -26,7 +26,7 @@ const Navbar = ({ logoSrc, text }: Props) => {
                             fontFamily: 'FinkHeavy',
                             fontSize: '1.5rem',
                             marginBottom: 0,
-                            letterSpacing: '4px',
+                            letterSpacing: '2px',
                             wordSpacing: '7px',
                         }}
                     >

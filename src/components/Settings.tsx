@@ -11,6 +11,7 @@ import {
     SelectChangeEvent,
     Button,
     Popover,
+    Zoom,
 } from '@mui/material'
 import { MouseEventHandler, SyntheticEvent, useState } from 'react'
 import { Region, Type, SortBy } from '../pages/Main'
@@ -71,6 +72,7 @@ const Settings = ({
                     vertical: 'top',
                     horizontal: 'center',
                 }}
+                TransitionComponent={Zoom}
                 marginThreshold={0}
                 PaperProps={{
                     elevation: 0,

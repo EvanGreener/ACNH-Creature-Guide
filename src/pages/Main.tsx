@@ -79,7 +79,7 @@ const Main = () => {
         <>
             <ThemeProvider theme={theme}>
                 <Navbar logoSrc={leafDark} text={TITLE} />
-                <section className="content">
+                <Box sx={{ m: 2 }}>
                     <Box sx={{ m: 1 }}>
                         <Header />
                         <Time />
@@ -112,7 +112,7 @@ const Main = () => {
                             E & J
                         </Typography>
                     </Box>
-                </section>
+                </Box>
             </ThemeProvider>
         </>
     )

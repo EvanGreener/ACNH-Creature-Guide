@@ -33,7 +33,7 @@
     "DIMENS": {
         "ROW_HEIGHT": 50,
         "LINE_HEIGHT": "1.5",
-        "DIALOGUE_HEIGHT": 140,
-        "DIALOGUE_WIDTH": 420
+        "DIALOGUE_HEIGHT": 130,
+        "DIALOGUE_WIDTH": 390
     }
 }
