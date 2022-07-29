@@ -49,7 +49,8 @@ const Settings = ({
     const handleClose = () => setAnchorEl(null)
     const open = Boolean(anchorEl)
 
-    const margin = 5
+    const marginX = 0.5
+    const marginY = 5
 
     return (
         <>
@@ -89,7 +90,7 @@ const Settings = ({
                 <Box sx={{ mx: 5 }}>
                     <Grid container>
                         <Grid item xs={3}>
-                            <FormControl sx={{ my: margin }}>
+                            <FormControl sx={{ mr: marginX, my: marginY }}>
                                 <InputLabel>Region</InputLabel>
                                 <Select
                                     label="Region"
@@ -110,7 +111,7 @@ const Settings = ({
                             </FormControl>
                         </Grid>
                         <Grid item xs={3}>
-                            <FormControl sx={{ my: margin }}>
+                            <FormControl sx={{ mr: marginX, my: marginY }}>
                                 <InputLabel>Type</InputLabel>
                                 <Select
                                     label="Type"
@@ -141,7 +142,7 @@ const Settings = ({
                             </FormControl>
                         </Grid>
                         <Grid item xs={3}>
-                            <FormControl sx={{ my: margin }}>
+                            <FormControl sx={{ mr: marginX, my: marginY }}>
                                 <InputLabel>Sort By</InputLabel>
                                 <Select
                                     label="Sort By:"
@@ -173,7 +174,7 @@ const Settings = ({
                         </Grid>
                         <Grid item xs={3}>
                             <FormControlLabel
-                                sx={{ my: margin }}
+                                sx={{ mr: marginX, my: marginY }}
                                 control={<Switch defaultChecked />}
                                 label={ALL_DAY_TEXT}
                                 onChange={handleChangeAllDay}

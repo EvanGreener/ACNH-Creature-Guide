@@ -7,7 +7,6 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material'
-// import { green } from '@mui/material/colors'
 import CreatureList from '../components/CreatureList'
 import Header from '../components/Header'
 import Settings from '../components/Settings'
@@ -102,7 +101,6 @@ const Main = () => {
                     <Box
                         sx={{
                             textAlign: 'right',
-                            mr: 5,
                         }}
                     >
                         <Typography
