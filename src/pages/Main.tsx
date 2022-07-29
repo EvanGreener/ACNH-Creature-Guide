@@ -86,6 +86,7 @@ const Main = () => {
                             region={region}
                             sortBy={sortBy}
                             type={type}
+                            allDay={allDay}
                             handleChangeAllDay={handleChangeAllDay}
                             handleChangeRegion={handleChangeRegion}
                             handleChangeSoryBy={handleChangeSoryBy}

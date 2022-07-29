@@ -22,6 +22,7 @@ interface Props {
     region: Region
     type: Type
     sortBy: SortBy
+    allDay: boolean
     handleChangeRegion: (event: SelectChangeEvent<Region>) => void
     handleChangeType: (event: SelectChangeEvent<Type>) => void
     handleChangeSoryBy: (event: SelectChangeEvent<SortBy>) => void
@@ -35,6 +36,7 @@ const Settings = ({
     region,
     type,
     sortBy,
+    allDay,
     handleChangeRegion,
     handleChangeType,
     handleChangeSoryBy,
@@ -175,7 +177,8 @@ const Settings = ({
                         <Grid item xs={3}>
                             <FormControlLabel
                                 sx={{ mr: marginX, my: marginY }}
-                                control={<Switch defaultChecked />}
+                                control={<Switch />}
+                                checked={allDay}
                                 label={ALL_DAY_TEXT}
                                 onChange={handleChangeAllDay}
                             />
