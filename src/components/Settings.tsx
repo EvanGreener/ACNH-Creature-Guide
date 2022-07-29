@@ -51,7 +51,7 @@ const Settings = ({
     const handleClose = () => setAnchorEl(null)
     const open = Boolean(anchorEl)
 
-    const marginX = 0.5
+    const marginX = 2
     const marginY = 5
 
     return (
@@ -89,10 +89,10 @@ const Settings = ({
                     },
                 }}
             >
-                <Box sx={{ mx: 5 }}>
+                <Box sx={{ mx: marginX }}>
                     <Grid container>
-                        <Grid item xs={3}>
-                            <FormControl sx={{ mr: marginX, my: marginY }}>
+                        <Grid item xs>
+                            <FormControl sx={{ my: marginY }}>
                                 <InputLabel>Region</InputLabel>
                                 <Select
                                     label="Region"
@@ -112,8 +112,8 @@ const Settings = ({
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={3}>
-                            <FormControl sx={{ mr: marginX, my: marginY }}>
+                        <Grid item xs>
+                            <FormControl sx={{ my: marginY }}>
                                 <InputLabel>Type</InputLabel>
                                 <Select
                                     label="Type"
@@ -143,8 +143,8 @@ const Settings = ({
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={3}>
-                            <FormControl sx={{ mr: marginX, my: marginY }}>
+                        <Grid item xs>
+                            <FormControl sx={{ my: marginY }}>
                                 <InputLabel>Sort By</InputLabel>
                                 <Select
                                     label="Sort By:"
@@ -174,9 +174,9 @@ const Settings = ({
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs>
                             <FormControlLabel
-                                sx={{ mr: marginX, my: marginY }}
+                                sx={{ my: marginY }}
                                 control={<Switch />}
                                 checked={allDay}
                                 label={ALL_DAY_TEXT}

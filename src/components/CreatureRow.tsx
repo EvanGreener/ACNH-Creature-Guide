@@ -50,7 +50,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                     }}
                 >
                     <Grid container spacing={1}>
-                        <Grid item xs={2} md={2}>
+                        <Grid item xs={2} sm={2}>
                             <div
                                 style={{
                                     height: ROW_HEIGHT,
@@ -58,9 +58,9 @@ const CreatureRow = ({ style, index, data }: Props) => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={3} md={2}>
+                        <Grid item xs={3} sm={2}>
                             <Typography
-                                variant="subtitle1"
+                                variant="h6"
                                 sx={{
                                     fontFamily: HEADER,
                                 }}
@@ -68,9 +68,9 @@ const CreatureRow = ({ style, index, data }: Props) => {
                                 {NAME_H}
                             </Typography>
                         </Grid>
-                        <Grid item xs={3} md={2}>
+                        <Grid item xs={3} sm={2}>
                             <Typography
-                                variant="subtitle1"
+                                variant="h6"
                                 sx={{
                                     fontFamily: HEADER,
                                 }}
@@ -78,9 +78,9 @@ const CreatureRow = ({ style, index, data }: Props) => {
                                 {PRICE}
                             </Typography>
                         </Grid>
-                        <Grid item xs={4} md={2}>
+                        <Grid item xs={4} sm={2}>
                             <Typography
-                                variant="subtitle1"
+                                variant="h6"
                                 sx={{
                                     fontFamily: HEADER,
                                 }}
@@ -91,8 +91,8 @@ const CreatureRow = ({ style, index, data }: Props) => {
                         <Box
                             item
                             component={Grid}
-                            md={2}
-                            display={{ xs: 'none', sm: 'none', md: 'block' }}
+                            sm={2}
+                            display={{ xs: 'none', sm: 'block' }}
                         >
                             <Typography
                                 variant="h6"
@@ -106,8 +106,8 @@ const CreatureRow = ({ style, index, data }: Props) => {
                         <Box
                             item
                             component={Grid}
-                            md={2}
-                            display={{ xs: 'none', sm: 'none', md: 'block' }}
+                            sm={2}
+                            display={{ xs: 'none', sm: 'block' }}
                         >
                             <Typography
                                 variant="h6"
@@ -131,7 +131,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                     }}
                 >
                     <Grid container spacing={1}>
-                        <Grid item xs={2} md={2}>
+                        <Grid item xs={2} sm={2}>
                             <img
                                 src={creature['icon_uri']}
                                 alt="icon"
@@ -139,7 +139,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                                 width={ROW_HEIGHT}
                             />
                         </Grid>
-                        <Grid item xs={3} md={2}>
+                        <Grid item xs={3} sm={2}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -149,7 +149,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                                 {creature.name['name-USen']}
                             </Typography>
                         </Grid>
-                        <Grid item xs={3} md={2}>
+                        <Grid item xs={3} sm={2}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -159,7 +159,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                                 {creature.price}
                             </Typography>
                         </Grid>
-                        <Grid item xs={4} md={2}>
+                        <Grid item xs={4} sm={2}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -174,8 +174,8 @@ const CreatureRow = ({ style, index, data }: Props) => {
                         <Box
                             item
                             component={Grid}
-                            md={2}
-                            display={{ xs: 'none', sm: 'none', md: 'block' }}
+                            sm={2}
+                            display={{ xs: 'none', sm: 'block' }}
                         >
                             <Typography
                                 variant="body2"
@@ -192,7 +192,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                             item
                             component={Grid}
                             md={2}
-                            display={{ xs: 'none', sm: 'none', md: 'block' }}
+                            display={{ xs: 'none', sm: 'block' }}
                         >
                             <Typography
                                 variant="body2"
