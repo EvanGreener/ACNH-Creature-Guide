@@ -2,7 +2,7 @@
 
 Whether your goal is to complete your museum collection or maximizing profits gained from selling your critters, this is the app for you!. This is web application made with React JS (CRA), with the intention of helping players who play the the game [Animal crossing: New Horizons](https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zDCOtzCySDcyYPSSSczLzE3MUUguyi8uzsxLV8hLLVfIyC_KrMrPKwYANkQPCw&q=animal+crossing+new+horizons&rlz=1C5CHFA_enCA856CA856&oq=animal+crossing+new+&aqs=chrome.2.69i59j69i57j46j69i59j0l3j69i60.9411j0j7&sourceid=chrome&ie=UTF-8). The app was primarily designed for mobile users.
 
-##Usage
+## Usage
 
 The app displays a list of all the obtainable fish, bugs and deep sea creatures depending on your region/hemisphere currently availible in real time. If the viewport width is smaller than 600px (vertical orientation on mobile devices), the table shows the creatures name, sale price and how you can obtain it. Otherwise it will also show the creauture's shadow size (if it has one) and the time interval of when its available.
 
