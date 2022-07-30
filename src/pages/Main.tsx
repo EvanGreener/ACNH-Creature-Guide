@@ -7,7 +7,7 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material'
-import CreatureList from '../components/CreatureList'
+import CreatureList from '../components/CreatureTable'
 import Header from '../components/Header'
 import Settings from '../components/Settings'
 import Navbar from '../components/Navbar'
