@@ -154,6 +154,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                                 variant="body2"
                                 sx={{
                                     fontFamily: NORMAL,
+                                    wordBreak: 'break-word',
                                 }}
                             >
                                 {creature.price}
@@ -164,6 +165,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                                 variant="body2"
                                 sx={{
                                     fontFamily: NORMAL,
+                                    wordBreak: 'break-word',
                                 }}
                             >
                                 {!creature.availability.location
@@ -191,7 +193,7 @@ const CreatureRow = ({ style, index, data }: Props) => {
                         <Box
                             item
                             component={Grid}
-                            md={2}
+                            sm={2}
                             display={{ xs: 'none', sm: 'block' }}
                         >
                             <Typography

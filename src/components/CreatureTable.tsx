@@ -173,7 +173,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
 
     return (
         <>
-            <Paper elevation={12} className="paper-content">
+            <Paper elevation={12}>
                 <FixedSizeList
                     height={400}
                     width="100%"
