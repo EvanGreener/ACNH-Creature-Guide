@@ -10,6 +10,8 @@ const Header = () => {
                 display: 'block',
                 marginLeft: 'auto',
                 marginRight: 'auto',
+                // to center it
+                maxWidth: '600px',
             }}
         />
     )

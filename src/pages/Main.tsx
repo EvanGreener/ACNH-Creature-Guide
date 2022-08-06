@@ -14,6 +14,7 @@ import Navbar from '../components/Navbar'
 import leafDark from '../assets/leaf_dark.png'
 import Time from '../components/Time'
 import config from '../config.json'
+import Readme from '../components/Readme'
 
 const { PRIMARY_BG, PRIMARY_TEXT, SECONDARY_BG } = config.THEME_COLORS
 const { TITLE } = config
@@ -92,6 +93,7 @@ const Main = () => {
                             handleChangeSoryBy={handleChangeSoryBy}
                             handleChangeType={handleChangeType}
                         />
+                        <Readme />
                         <CreatureList
                             type={type}
                             region={region}
