@@ -47,6 +47,9 @@ const CreatureRow = ({ style, index, data }: Props) => {
                     sx={{
                         backgroundColor: PRIMARY_BG,
                         lineHeight: LINE_HEIGHT,
+                        mt: 1,
+                        borderRadius: 1,
+                        height: ROW_HEIGHT - 2,
                     }}
                 >
                     <Grid container spacing={1}>

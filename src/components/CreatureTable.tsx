@@ -23,6 +23,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
 
     const { BUGS, FISH, SEA } = config.API
     const { SEA_LOCATION_TEXT } = config
+    const { ROW_HEIGHT } = config.DIMENS
 
     // Function to update the creatures currently being shown
     useEffect(() => {
@@ -177,7 +178,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
                 <FixedSizeList
                     height={400}
                     width="100%"
-                    itemSize={70}
+                    itemSize={ROW_HEIGHT}
                     itemCount={shown.length}
                     itemData={shown}
                     itemKey={(index, data) => {

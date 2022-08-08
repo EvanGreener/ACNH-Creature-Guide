@@ -9,14 +9,12 @@ import {
 import { TransitionProps } from '@mui/material/transitions'
 import { forwardRef, ReactElement, Ref, useState } from 'react'
 
-const Transition = forwardRef(function Transition(
-    props: TransitionProps & {
-        children: ReactElement<any, any>
-    },
-    ref: Ref<unknown>
-) {
-    return <Slide direction="right" ref={ref} {...props} />
-})
+const Transition = forwardRef(
+    (
+        props: TransitionProps & { children: ReactElement<any, any> },
+        ref: Ref<unknown>
+    ) => <Slide direction="right" ref={ref} {...props} />
+)
 
 const Readme = () => {
     const [open, setOpen] = useState(false)
@@ -28,25 +26,25 @@ const Readme = () => {
             <Button
                 variant="contained"
                 onClick={handleClick}
-                sx={{ mr: 1, my: 1, typography: 'body2' }}
+                sx={{ mr: 1, my: 1, typography: 'body2', fontWeight: 'bold' }}
             >
                 READ ME!
             </Button>
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
-                keepMounted
                 onClose={handleClose}
             >
-                <DialogTitle>{`Instructions:`}</DialogTitle>
+                <DialogTitle>{`Getting started / Disclaimer:`}</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        This app a cheat sheet of of all the creatures presently
-                        available based on your Island's hemisphere/region and
-                        time. To set your Island's hemisphere click on the
-                        'Filter' button and select your hemisphere in the Region
-                        dropdown menu. If you're on mobile, turn it sideways to
-                        also see the creatures shadow size {'('}if applicable
+                        This app is a cheat sheet of of all the creatures
+                        presently available based on your Island's
+                        hemisphere/region and time. To set your Island's
+                        hemisphere click on the 'Filter' button and select your
+                        hemisphere in the Region dropdown menu. If you're on
+                        mobile, turn it sideways to also see the creatures
+                        shadow size {'('}if applicable
                         {')'} and availability throughout the day.
                         <br />
                         <br />

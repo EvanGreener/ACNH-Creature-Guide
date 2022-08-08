@@ -59,7 +59,7 @@ const Settings = ({
             <Button
                 variant="contained"
                 onClick={handleClick}
-                sx={{ mr: 1, my: 1, typography: 'body2' }}
+                sx={{ mr: 1, my: 1, typography: 'body2'}}
             >
                 Filter
             </Button>
