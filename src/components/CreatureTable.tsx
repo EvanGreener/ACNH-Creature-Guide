@@ -2,7 +2,7 @@ import { Paper } from '@mui/material'
 import { FixedSizeList } from 'react-window'
 import { Region, SortBy, Type } from '../pages/Main'
 import { Backdrop, CircularProgress } from '@mui/material'
-import CreatureRow, { Creature } from './CreatureRow'
+import CreatureRow, { Creature, innerElementType } from './CreatureRow'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import config from '../config.json'
@@ -102,8 +102,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
                 break
         }
 
-        // Hacky way of adding header
-        // Values don't really matter, see CreatureRow.tsx
+        // Empty row needs to be present so 1st row doesn't hide behind header
         newShown.unshift({
             name: {
                 'name-USen': '',
@@ -184,6 +183,7 @@ const CreatureList = ({ allDay, type, region, sortBy }: Props) => {
                     itemKey={(index, data) => {
                         return data[index]['file-name'] + '_' + type
                     }}
+                    innerElementType={innerElementType}
                 >
                     {CreatureRow}
                 </FixedSizeList>
